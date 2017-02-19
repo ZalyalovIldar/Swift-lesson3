@@ -20,17 +20,15 @@ class ViewController: UIViewController {
         self.tableView.register(CustomCell.nib, forCellReuseIdentifier: CustomCell.cellIdentifier)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
-    
     @IBAction func goToFilterAction(_ sender: UIBarButtonItem) {
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //let vc:FilterViewController = storyboard.instantiateViewController(withIdentifier: "filter") as! FilterViewController
         let nc:UINavigationController = storyboard.instantiateViewController(withIdentifier: "filter") as! UINavigationController
-        if let vc = nc.viewControllers[0] as? FilterViewController {
-            vc.delegate = self
+        guard let vc:FilterViewController = nc.viewControllers[0] as? FilterViewController else {
+            return
         }
-        present(nc, animated: true, completion: nil)
-        //vc.delegate = self
+        vc.delegate = self
+        
+        self.present(nc, animated: true, completion: nil)
     }
     
     
@@ -39,11 +37,11 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1;
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.usersArr.count;
+        return self.usersArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,15 +65,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             cell.dataOfBirthLabel.text = user?.dateOfBirth.dateToFormatedString()
             cell.sexLabel.text = user?.sex
         }
-        return cell;
+        return cell
     }
 }
 
 //MARK: Sort Table After Close Filter VC
 extension ViewController:FilterDelegate{
     func sortTable(WithFilter filter: String) {
-        usersArr = DataManager.sortArray(WithObject: usersArr, ByField: filter)! 
-        tableView.reloadData()
-        dismiss(animated: true, completion: nil)
+        guard let arr = DataManager.sortArray(withObject: usersArr, byField: filter) else {assertionFailure("Method return nil array, but shoudn't!");return}
+        self.usersArr = arr
+        self.tableView.reloadData()
+        self.dismiss(animated: true, completion: nil)
     }
 }

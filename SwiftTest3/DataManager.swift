@@ -11,14 +11,14 @@ import Foundation
 class DataManager {
     
     class func generateUsers() -> [Any] {
-        let manFirstNameArr:[String] = ["Александр","Максим","Иван","Артем","Никита"];
-        let womanFirstNameArr:[String] = ["Анастасия","Анна","Мария","Елена","Дарья"];
-        let lastNameArr:[String] = ["Иванов","Васильев","Петров","Смирнов","Михайлов"];
-        var usersArray:[Any] = [];
+        let manFirstNameArr:[String] = ["Александр","Максим","Иван","Артем","Никита"]
+        let womanFirstNameArr:[String] = ["Анастасия","Анна","Мария","Елена","Дарья"]
+        let lastNameArr:[String] = ["Иванов","Васильев","Петров","Смирнов","Михайлов"]
+        var usersArray:[Any] = []
         for i in 0..<5 {
             let manUser = ManProfile(firstName: manFirstNameArr[i], lastName: lastNameArr[i], dateOfBirth: Date.randomDate())
             let womanUser = WomanProfile(firstName: womanFirstNameArr[i], lastName: "\(lastNameArr[4-i])а", dateOfBirth: Date.randomDate())
-            usersArray.append(manUser);
+            usersArray.append(manUser)
             usersArray.append(womanUser)
         }
         return usersArray
@@ -29,7 +29,7 @@ class DataManager {
         return arr
     }
     
-    class func sortArray(WithObject arr:[Any], ByField field:String)->[Any]?{
+    class func sortArray(withObject arr:[Any], byField field:String)->[Any]?{
         var array:[UserProfile] = arr as! [UserProfile]
         
         switch field {

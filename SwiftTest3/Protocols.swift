@@ -10,16 +10,12 @@ import Foundation
 import UIKit
 
 protocol UserProfile {
-    var firstName:String{get set};
-    var lastName:String{get set};
-    var dateOfBirth:Date{get set};
+    var firstName:String{get set}
+    var lastName:String{get set}
+    var dateOfBirth:Date{get set}
     
     func fullName() -> String;
-    func printUserInfo(sex:String);
-}
-
-protocol FilterActionDelegate {
-    func switchDidChanged(filter:String)
+    func printUserInfo(sex:String)
 }
 
 protocol FilterDelegate {

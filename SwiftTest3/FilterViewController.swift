@@ -22,7 +22,7 @@ class FilterViewController: UIViewController{
     }
 
     @IBAction func closeFilterAction(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -30,11 +30,11 @@ class FilterViewController: UIViewController{
 extension FilterViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1;
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.filtersNameArr.count;
+        return self.filtersNameArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

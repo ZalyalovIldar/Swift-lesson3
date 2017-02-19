@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FilterActionDelegate {
+    func switchDidChanged(filter:String)
+}
+
 class FilterCustomViewCell: UITableViewCell {
 
     @IBOutlet weak var filterLabel: UILabel!

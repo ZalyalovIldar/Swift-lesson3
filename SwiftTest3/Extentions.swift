@@ -11,11 +11,11 @@ import UIKit
 
 extension UserProfile {
     func fullName() -> String {
-        return "\(lastName) \(firstName)"
+        return "\(self.lastName) \(self.firstName)"
     }
     
     func printUserInfo(sex:String){
-        print("Name: \(self.fullName()), Data of Birth: \(dateOfBirth), Sex: \(sex)")
+        print("Name: \(self.fullName()), Data of Birth: \(self.dateOfBirth), Sex: \(sex)")
     }
 
 }
