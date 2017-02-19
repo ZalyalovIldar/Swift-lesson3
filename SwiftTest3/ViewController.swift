@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
-    var namesArr: [String] = ["Mark","Logy","Morgan"]
+    
+    let usersArr:[Any] = DataManager.generateUsers()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,23 +35,30 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.namesArr.count;
+        return self.usersArr.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.cellIdentifier, for: indexPath as IndexPath) as! CustomCell
-        
-        cell.nameLabel.text = self.namesArr[indexPath.row]
-//        cell.delegate = self
-        
-        return cell
-    }
-}
 
-extension ViewController: InfoActionDelegate{
-    func infoButtonDidTap(button: UIButton) {
-         self.performSegue(withIdentifier: "segue", sender: button)
+        return compliteDataTo(Cell: cell, withUserData: self.usersArr[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64.0
+    }
+    
+    func compliteDataTo(Cell cell:CustomCell, withUserData data:Any) -> CustomCell {
+        if let user = data as? ManProfile {
+            cell.nameLabel.text = user.fullName()
+            cell.dataOfBirthLabel.text = user.dateOfBirth.dateToFormatedString()
+            cell.sexLabel.text = user.sex
+        }else {
+            let user = data as? WomanProfile
+            cell.nameLabel.text = user?.fullName()
+            cell.dataOfBirthLabel.text = user?.dateOfBirth.dateToFormatedString()
+            cell.sexLabel.text = user?.sex
+        }
+        return cell;
     }
 }
