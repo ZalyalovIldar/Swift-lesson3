@@ -9,6 +9,7 @@
 import Foundation
 
 class DataManager {
+    
     class func generateUsers() -> [Any] {
         let manFirstNameArr:[String] = ["Александр","Максим","Иван","Артем","Никита"];
         let womanFirstNameArr:[String] = ["Анастасия","Анна","Мария","Елена","Дарья"];
@@ -26,5 +27,34 @@ class DataManager {
     class func getFiltersNameArr() -> [String] {
         let arr = ["Имя","Фамилия","Дата рождения","Пол"]
         return arr
+    }
+    
+    class func sortArray(WithObject arr:[Any], ByField field:String)->[Any]?{
+        var array:[UserProfile] = arr as! [UserProfile]
+        
+        switch field {
+        case "Имя":
+            array = array.sorted(by: {$0.firstName < $1.firstName})
+            return array
+        case "Фамилия":
+            array = array.sorted(by: {$0.lastName < $1.lastName})
+            return array
+        case "Дата рождения":
+            array = array.sorted(by: {$0.dateOfBirth < $1.dateOfBirth})
+            return array
+        case "Пол":
+            var sortedUsers:[Any] = []
+            for data in arr {
+                if let user = data as? ManProfile {
+                    sortedUsers.insert(user, at: 0)
+                }else {
+                    let user = data as? WomanProfile
+                    sortedUsers.append(user!)
+                }
+            }
+            return sortedUsers
+        default:
+            return nil
+        }
     }
 }

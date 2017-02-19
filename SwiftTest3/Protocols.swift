@@ -18,6 +18,10 @@ protocol UserProfile {
     func printUserInfo(sex:String);
 }
 
-protocol InfoActionDelegate {
-    func switchDidChanged(switch: UISwitch)
+protocol FilterActionDelegate {
+    func switchDidChanged(filter:String)
+}
+
+protocol FilterDelegate {
+    func sortTable(WithFilter filter:String)
 }

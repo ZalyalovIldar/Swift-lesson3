@@ -41,7 +41,7 @@
                     <navigationItem key="navigationItem" title=" Пользователи" id="vaz-aJ-9Eb">
                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="yb4-0s-bGi">
                             <connections>
-                                <segue destination="1u9-28-P7x" kind="presentation" modalTransitionStyle="flipHorizontal" id="HPy-zj-dkE"/>
+                                <action selector="goToFilterAction:" destination="BYZ-38-t0r" id="iHA-oe-b4z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -74,7 +74,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Y5d-2Z-p6m">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1u9-28-P7x" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="filter" automaticallyAdjustsScrollViewInsets="NO" id="1u9-28-P7x" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xd3-dc-ua3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

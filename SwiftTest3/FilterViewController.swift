@@ -8,9 +8,12 @@
 
 import UIKit
 
-class FilterViewController: UIViewController {
+class FilterViewController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var delegate:FilterDelegate?
+    
     let filtersNameArr:[String] = DataManager.getFiltersNameArr()
     
     override func viewDidLoad() {
@@ -23,6 +26,7 @@ class FilterViewController: UIViewController {
     }
 }
 
+//MARK: Table View Configuration
 extension FilterViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -41,8 +45,9 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-extension FilterViewController: InfoActionDelegate{
-    func switchDidChanged(switch: UISwitch) {
-        dismiss(animated: true, completion: nil)
+//MARK: Delegate for switch extentions
+extension FilterViewController: FilterActionDelegate{
+    func switchDidChanged(filter:String) {
+        self.delegate?.sortTable(WithFilter: filter)
     }
 }

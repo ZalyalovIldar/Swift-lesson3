@@ -13,7 +13,7 @@ class FilterCustomViewCell: UITableViewCell {
     @IBOutlet weak var filterLabel: UILabel!
     @IBOutlet weak var filterSwitch: UISwitch!
     
-    var delegate: InfoActionDelegate?
+    var delegate: FilterActionDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,9 +28,7 @@ class FilterCustomViewCell: UITableViewCell {
     
     @IBAction func filterSwitchChanged(_ sender: UISwitch){
         guard self.delegate != nil else {assertionFailure("Be sure delegate not Nil!"); return}
-        
-        self.delegate?.switchDidChanged(switch: sender)
-        print(filterLabel.text!)
+        self.delegate?.switchDidChanged(filter:filterLabel.text!)
     }
     
 }

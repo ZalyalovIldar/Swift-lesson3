@@ -12,15 +12,30 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let usersArr:[Any] = DataManager.generateUsers()
+    var usersArr:[Any] = DataManager.generateUsers()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(CustomCell.nib, forCellReuseIdentifier: CustomCell.cellIdentifier)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+    
+    @IBAction func goToFilterAction(_ sender: UIBarButtonItem) {
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        //let vc:FilterViewController = storyboard.instantiateViewController(withIdentifier: "filter") as! FilterViewController
+        let nc:UINavigationController = storyboard.instantiateViewController(withIdentifier: "filter") as! UINavigationController
+        if let vc = nc.viewControllers[0] as? FilterViewController {
+            vc.delegate = self
+        }
+        present(nc, animated: true, completion: nil)
+        //vc.delegate = self
+    }
+    
+    
 }
-
+//MARK:Table View Configuration
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -53,5 +68,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             cell.sexLabel.text = user?.sex
         }
         return cell;
+    }
+}
+
+//MARK: Sort Table After Close Filter VC
+extension ViewController:FilterDelegate{
+    func sortTable(WithFilter filter: String) {
+        usersArr = DataManager.sortArray(WithObject: usersArr, ByField: filter)! 
+        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
     }
 }
