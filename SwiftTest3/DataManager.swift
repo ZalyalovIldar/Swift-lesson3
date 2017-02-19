@@ -22,4 +22,9 @@ class DataManager {
         }
         return usersArray
     }
+    
+    class func getFiltersNameArr() -> [String] {
+        let arr = ["Имя","Фамилия","Дата рождения","Пол"]
+        return arr
+    }
 }

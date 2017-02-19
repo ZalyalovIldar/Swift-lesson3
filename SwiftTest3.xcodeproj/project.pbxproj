@@ -14,6 +14,9 @@
 		7C7B301F1E57951400BF54C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7B301D1E57951400BF54C9 /* LaunchScreen.storyboard */; };
 		7C7B30281E57955200BF54C9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B30261E57955200BF54C9 /* CustomCell.swift */; };
 		7C7B30291E57955200BF54C9 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7B30271E57955200BF54C9 /* CustomCell.xib */; };
+		AE472BB51E59D17700C5115B /* FilterCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE472BB31E59D17700C5115B /* FilterCustomViewCell.swift */; };
+		AE472BB61E59D17700C5115B /* FilterCustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE472BB41E59D17700C5115B /* FilterCustomViewCell.xib */; };
+		AE472BB81E59D24B00C5115B /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE472BB71E59D24B00C5115B /* FilterViewController.swift */; };
 		AEA840611E599D1500AF80A2 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA840601E599D1500AF80A2 /* Protocols.swift */; };
 		AEA840631E599EBF00AF80A2 /* ManProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA840621E599EBF00AF80A2 /* ManProfile.swift */; };
 		AEA840661E59A18500AF80A2 /* WomanProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA840651E59A18500AF80A2 /* WomanProfile.swift */; };
@@ -31,6 +34,9 @@
 		7C7B30201E57951400BF54C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C7B30261E57955200BF54C9 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		7C7B30271E57955200BF54C9 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		AE472BB31E59D17700C5115B /* FilterCustomViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCustomViewCell.swift; sourceTree = "<group>"; };
+		AE472BB41E59D17700C5115B /* FilterCustomViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterCustomViewCell.xib; sourceTree = "<group>"; };
+		AE472BB71E59D24B00C5115B /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		AEA840601E599D1500AF80A2 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		AEA840621E599EBF00AF80A2 /* ManProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManProfile.swift; sourceTree = "<group>"; };
 		AEA840651E59A18500AF80A2 /* WomanProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WomanProfile.swift; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				7C7B30161E57951400BF54C9 /* ViewController.swift */,
+				AE472BB71E59D24B00C5115B /* FilterViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -137,6 +144,8 @@
 			children = (
 				7C7B30261E57955200BF54C9 /* CustomCell.swift */,
 				7C7B30271E57955200BF54C9 /* CustomCell.xib */,
+				AE472BB31E59D17700C5115B /* FilterCustomViewCell.swift */,
+				AE472BB41E59D17700C5115B /* FilterCustomViewCell.xib */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -202,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C7B301F1E57951400BF54C9 /* LaunchScreen.storyboard in Resources */,
+				AE472BB61E59D17700C5115B /* FilterCustomViewCell.xib in Resources */,
 				7C7B301C1E57951400BF54C9 /* Assets.xcassets in Resources */,
 				7C7B30291E57955200BF54C9 /* CustomCell.xib in Resources */,
 				7C7B301A1E57951400BF54C9 /* Main.storyboard in Resources */,
@@ -219,10 +229,12 @@
 				AEA840701E59AB5600AF80A2 /* DataManager.swift in Sources */,
 				AEA840611E599D1500AF80A2 /* Protocols.swift in Sources */,
 				7C7B30171E57951400BF54C9 /* ViewController.swift in Sources */,
+				AE472BB81E59D24B00C5115B /* FilterViewController.swift in Sources */,
 				7C7B30281E57955200BF54C9 /* CustomCell.swift in Sources */,
 				AEA840681E59A1EB00AF80A2 /* Extentions.swift in Sources */,
 				7C7B30151E57951400BF54C9 /* AppDelegate.swift in Sources */,
 				AEA840661E59A18500AF80A2 /* WomanProfile.swift in Sources */,
+				AE472BB51E59D17700C5115B /* FilterCustomViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
