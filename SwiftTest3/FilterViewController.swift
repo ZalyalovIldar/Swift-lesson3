@@ -36,6 +36,13 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FilterCustomViewCell.cellIdentifier, for: indexPath as IndexPath) as! FilterCustomViewCell
         cell.filterLabel.text = filtersNameArr[indexPath.row]
+        cell.delegate = self
         return cell
+    }
+}
+
+extension FilterViewController: InfoActionDelegate{
+    func switchDidChanged(switch: UISwitch) {
+        dismiss(animated: true, completion: nil)
     }
 }

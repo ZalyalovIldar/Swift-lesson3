@@ -13,6 +13,8 @@ class FilterCustomViewCell: UITableViewCell {
     @IBOutlet weak var filterLabel: UILabel!
     @IBOutlet weak var filterSwitch: UISwitch!
     
+    var delegate: InfoActionDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +24,13 @@ class FilterCustomViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func filterSwitchChanged(_ sender: UISwitch){
+        guard self.delegate != nil else {assertionFailure("Be sure delegate not Nil!"); return}
+        
+        self.delegate?.switchDidChanged(switch: sender)
+        print(filterLabel.text!)
     }
     
 }

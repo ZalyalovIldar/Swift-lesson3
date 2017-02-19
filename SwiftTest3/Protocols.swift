@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol UserProfile {
     var firstName:String{get set};
@@ -15,4 +16,8 @@ protocol UserProfile {
     
     func fullName() -> String;
     func printUserInfo(sex:String);
+}
+
+protocol InfoActionDelegate {
+    func switchDidChanged(switch: UISwitch)
 }
