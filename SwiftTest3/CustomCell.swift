@@ -13,7 +13,9 @@ protocol InfoActionDelegate {
 }
 class CustomCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailButton: UIButton!
+    @IBOutlet weak var lastName: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
     
     var delegate: InfoActionDelegate?
     

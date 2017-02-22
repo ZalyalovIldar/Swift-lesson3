@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 enum Gender {
     case man
     case woman
@@ -18,7 +17,7 @@ protocol UserProfile {
     var name: String! {get set}
     var lastName: String! {get set}
     var fullName: String {get}
-    var birthDay: Date! {get}
+    var birthDay: Date! {get set}
 
     var sex: Gender! {get}
     
@@ -33,6 +32,11 @@ extension UserProfile {
     func printAllInfo() {
         print("| Fullname: \(self.fullName), birtday: \(self.birthDay!), sex: \(self.sex!)")
     }
+}
+
+enum FilterType {
+    case firstName
+    case secondName
 }
 
 extension Gender: CustomStringConvertible {
