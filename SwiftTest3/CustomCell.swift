@@ -13,7 +13,10 @@ protocol InfoActionDelegate {
 }
 class CustomCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailButton: UIButton!
+
+   
+    @IBOutlet weak var sexLabel: UILabel!
+    @IBOutlet weak var birthDateLabel: UILabel!
     
     var delegate: InfoActionDelegate?
     
@@ -28,9 +31,9 @@ class CustomCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func emailButtonPressed(_ sender: UIButton) {
-        guard self.delegate != nil else {assertionFailure("Be sure delegate not Nil!"); return}
-        
-        self.delegate?.infoButtonDidTap(button: sender)
-    }
+//    @IBAction func emailButtonPressed(_ sender: UIButton) {
+//        guard self.delegate != nil else {assertionFailure("Be sure delegate not Nil!"); return}
+//        
+//        self.delegate?.infoButtonDidTap(button: sender)
+//    }
 }
