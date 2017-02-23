@@ -8,8 +8,22 @@
 
 import Foundation
 
-struct SortingStruct<T> {
+class SortingStruct<T> { //и да, это класс))
     var sortName: String!
     var isDoing: Bool 
     var sortType:(T, T) -> Bool
+    
+    init() {
+        sortName = ""
+        isDoing = false
+        sortType = {_,_ in 
+            return false
+        }
+    }
+    
+    init(sortName: String, isDoing: Bool, sortType:@escaping (T, T) -> Bool) {
+        self.sortName = sortName
+        self.isDoing = isDoing
+        self.sortType = sortType
+    }
 }

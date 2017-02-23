@@ -53,19 +53,19 @@ func getSortingList() -> [SortingStruct<UserProfile>] {
     list.append(SortingStruct(sortName: "by name",
                               isDoing: false,
                               sortType: { (first: UserProfile, second: UserProfile) -> Bool in
-                                return first.name > second.name
+                                return first.name < second.name
     }))
     
     list.append(SortingStruct(sortName: "by lastName",
                               isDoing: false,
                               sortType: { (first: UserProfile, second: UserProfile) -> Bool in
-                                return first.name > second.name
+                                return first.lastName < second.lastName
     }))
     
     list.append(SortingStruct(sortName: "by birthday",
                               isDoing: false,
                               sortType: { (first: UserProfile, second: UserProfile) -> Bool in
-                                return first.name > second.name
+                                return first.birthDay > second.birthDay
     }))
     
     list.append(SortingStruct(sortName: "by dominanting",
