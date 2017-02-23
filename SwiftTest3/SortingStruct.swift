@@ -1,5 +1,5 @@
 //
-//  Helper.swift
+//  SortingStruct.swift
 //  SwiftTest3
 //
 //  Created by Alexander Drovnyashin on 23.02.17.
@@ -10,13 +10,13 @@ import Foundation
 
 class SortingStruct<T> { //и да, это класс))
     var sortName: String!
-    var isDoing: Bool 
+    var isDoing: Bool
     var sortType:(T, T) -> Bool
     
     init() {
         sortName = ""
         isDoing = false
-        sortType = {_,_ in 
+        sortType = {_,_ in
             return false
         }
     }

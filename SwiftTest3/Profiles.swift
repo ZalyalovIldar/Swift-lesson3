@@ -71,12 +71,7 @@ func getSortingList() -> [SortingStruct<UserProfile>] {
     list.append(SortingStruct(sortName: "by dominanting",
                               isDoing: false,
                               sortType: { (first: UserProfile, second: UserProfile) -> Bool in
-                                switch first.sex! {
-                                case .man:
-                                    return false
-                                case .woman:
-                                    return true
-                                }
+                                return first.sex.description > second.sex.description
     }))
     
     return list

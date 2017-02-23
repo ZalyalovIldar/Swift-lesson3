@@ -21,53 +21,35 @@ class FilterVC: UIViewController {
     
     /// и так сойдет
     func offAllSort() {
-        if let sortList = self.sortingList {
-            for strSort in sortList {
-                if strSort.isDoing {
-                    strSort.isDoing = false
-                }
-            }
-        }
+        guard let sortList = self.sortingList else {return}
+        sortList.forEach{$0.isDoing = false}
+        
         self.tableView.reloadData()
-    }
-    
-    deinit {
-        print("deinit")
     }
 }
 
 extension FilterVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.cellIdentifier, for: indexPath as IndexPath) as! FilterCell
+        guard self.sortingList != nil else {return UITableViewCell()}
         
-        guard self.sortingList != nil else {
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.cellIdentifier, for: indexPath as IndexPath) as! FilterCell
         
         let sort = self.sortingList![indexPath.row]
         cell.nameFilterLabel.text = sort.sortName
         cell.switcher.isOn = sort.isDoing
         
-        weak var weakSelf = self
-        
-        cell.switchClouser = {
-            if $0 {
-                weakSelf?.offAllSort()
-                sort.isDoing = $0
-                weakSelf?.dismiss(animated: true, completion: nil)
-            } else {
-                sort.isDoing = $0
-            }
+        cell.switchClouser = {[weak self] in
+            guard $0 == true else {sort.isDoing = $0; return}
+            self?.offAllSort()
+            sort.isDoing = $0
+            self?.dismiss(animated: true, completion: nil)
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard self.sortingList != nil else {
-            return 0
-        }
-        return self.sortingList!.count
+        return (self.sortingList != nil) ? self.sortingList!.count : 0
     }
 }

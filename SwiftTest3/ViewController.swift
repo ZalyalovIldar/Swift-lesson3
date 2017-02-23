@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.reloadTable()
     }
 
@@ -36,23 +38,15 @@ class ViewController: UIViewController {
         var profileArr = getUsersProfile()
         let sort = self.getSort()
         
-        guard (sort != nil) else {
-            self.namesArr = profileArr
-            return
-        }
-        
+        guard sort != nil else {self.namesArr = profileArr;return}
         profileArr.sort(by: sort!.sortType)
-        
         self.namesArr = profileArr
     }
     
     func getSort() -> (SortingStruct<UserProfile>?) {
         for sort in self.sortingList {
-            if sort.isDoing {
-                return sort
-            }
+            if sort.isDoing {return sort}
         }
-        
         return nil
     }
     

@@ -8,15 +8,10 @@
 
 import UIKit
 
-protocol InfoActionDelegate {
-    func infoButtonDidTap(button: UIButton)
-}
 class CustomCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
-    
-    var delegate: InfoActionDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
